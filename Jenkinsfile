@@ -21,7 +21,7 @@ pipeline{
                 unzip zipFile: 'target/hello.war', dir: 'docker/ROOT'
 
                 echo "Remvoe files"
-                whateverFunction("/opt")
+                removeFile("/opt")
                 // deleteFile("ROOT/META-INF/maven/org.example/jenkins-tutorial/pom.xml")
             } 
         }
@@ -29,7 +29,10 @@ pipeline{
 }
 
 
-void whateverFunction(String a) {
-    echo ">>>> : " + a;
-    sh 'ls ' + a;
+void removeFile(String filePath) {
+    echo ">>>> : " + filePath;
+    sh 'ls ' + filePath; 
+
+    def result = new File(filePath).isFile()
+    echo result 
 }
