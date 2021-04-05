@@ -5,7 +5,6 @@ function deleteFile(name) {
     new File(filePath).deleteOnExit();
 }
 
-
 pipeline{
     agent any 
 
