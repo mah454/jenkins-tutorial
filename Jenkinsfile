@@ -29,6 +29,6 @@ pipeline{
 }
 
 
-void whateverFunction() {
-    sh 'ls /'
+void whateverFunction(String a) {
+    sh 'ls ${a}';
 }
