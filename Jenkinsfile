@@ -1,5 +1,5 @@
 
-import static org.utils.PipelineUtils.*
+import java.io.File;
 
 function deleteFile(name) {
     new File(filePath).deleteOnExit();
