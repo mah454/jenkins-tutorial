@@ -1,12 +1,9 @@
-pipeline {
-    agent any
-
+pipeline{
+    agent any 
     stages {
-        stage('Compile project') {
+        stage ("build") {
             steps {
-                withMaven(maven: 'maven_3.6.3') {
-                    sh 'mvn clean compile'
-                }
+                echo "Building the application ..."
             }
         }
     }
