@@ -32,7 +32,3 @@ pipeline{
 void whateverFunction() {
     sh 'ls /'
 }
-
-function deleteFile(String filePath) {
-    new File(filePath).deleteOnExit();
-}
