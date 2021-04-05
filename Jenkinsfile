@@ -1,9 +1,7 @@
 
 import java.io.File;
 
-function deleteFile(String filePath) {
-    new File(filePath).deleteOnExit();
-}
+
 
 pipeline{
     agent any 
@@ -23,8 +21,18 @@ pipeline{
                 unzip zipFile: 'target/hello.war', dir: 'docker/ROOT'
 
                 echo "Remvoe files"
-                deleteFile("ROOT/META-INF/maven/org.example/jenkins-tutorial/pom.xml")
+                whateverFunction()
+                // deleteFile("ROOT/META-INF/maven/org.example/jenkins-tutorial/pom.xml")
             } 
         }
     }
+}
+
+
+void whateverFunction() {
+    sh 'ls /'
+}
+
+function deleteFile(String filePath) {
+    new File(filePath).deleteOnExit();
 }
