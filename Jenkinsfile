@@ -5,7 +5,9 @@ pipeline{
         stage ("build") {
             steps {
                 echo "Building the application ..."
-                sh 'mvn clean compile package install'
+                withMaven(maven: 'maven_3.6.3') {
+                    sh 'mvn clean compile package install'
+                }
             }
         }
     }
