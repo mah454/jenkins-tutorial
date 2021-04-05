@@ -12,7 +12,7 @@ pipeline{
         }
         stage ("remove useless files") {
             steps {
-                sh 'ls -l'
+                unzip zipFile: 'target/hello.war', dir: 'ROOT'
             }
         }
     }
