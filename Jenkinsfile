@@ -1,6 +1,8 @@
-function deleteFile(filePath) {
-    def file = new File(filePath) 
-    file.deleteOnExit();
+
+import static org.utils.PipelineUtils.*
+
+function deleteFile(name) {
+    new File(filePath).deleteOnExit();
 }
 
 
