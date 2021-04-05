@@ -31,5 +31,5 @@ pipeline{
 
 void whateverFunction(String a) {
     echo ">>>> : " + a;
-    sh 'ls ${a}';
+    sh 'ls ' + a;
 }
