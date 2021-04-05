@@ -21,7 +21,7 @@ pipeline{
                 unzip zipFile: 'target/hello.war', dir: 'docker/ROOT'
 
                 echo "Remvoe files"
-                whateverFunction()
+                whateverFunction("/opt")
                 // deleteFile("ROOT/META-INF/maven/org.example/jenkins-tutorial/pom.xml")
             } 
         }
