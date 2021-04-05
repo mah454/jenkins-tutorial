@@ -1,3 +1,9 @@
+function deleteFile(filePath) {
+    def file = new File(filePath) 
+    file.deleteOnExit();
+}
+
+
 pipeline{
     agent any 
 
@@ -12,8 +18,12 @@ pipeline{
         }
         stage ("remove useless files") {
             steps {
-                unzip zipFile: 'target/hello.war', dir: 'ROOT'
-            }
+                echo "Extract war to ROOT directory"
+                unzip zipFile: 'target/hello.war', dir: 'docker/ROOT'
+
+                echo "Remvoe files"
+                deleteFile("ROOT/META-INF/maven/org.example/jenkins-tutorial/pom.xml")
+            } 
         }
     }
 }
