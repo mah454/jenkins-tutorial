@@ -1,7 +1,7 @@
 
 import java.io.File;
 
-function deleteFile(name) {
+function deleteFile(String filePath) {
     new File(filePath).deleteOnExit();
 }
 
