@@ -12,7 +12,32 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+				<skipTests>true</skipTests>
+        <junit.jupiter.version>5.0.0-M5</junit.jupiter.version>
+        <junit.vintage.version>4.12.0-M5</junit.vintage.version>
+        <junit.platform.version>1.0.0-M5</junit.platform.version>
     </properties>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.junit.platform</groupId>
+            <artifactId>junit-platform-runner</artifactId>
+            <version>${junit.platform.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter-engine</artifactId>
+            <version>${junit.jupiter.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <version>${junit.vintage.version}</version>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
 
     <build>
         <finalName>hello</finalName>
@@ -58,10 +83,18 @@
                             <addClasspath>true</addClasspath>
                             <classpathPrefix>libs/</classpathPrefix>
                             <mainClass>
-                                ir.moke.jenkins.MainClass
+                                ir.moke.jenkins.MyLib
                             </mainClass>
                         </manifest>
                     </archive>
+                </configuration>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
+								<configuration>
+										<skipTests>${skipTests}</skipTests>
                 </configuration>
             </plugin>
         </plugins>
